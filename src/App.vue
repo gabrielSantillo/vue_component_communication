@@ -1,7 +1,14 @@
 <template>
   <div id="app">
+    <h1 ref="chosen_user"></h1>
+
     <article>
-      <small-user-profile v-for="user in users" :key="user[`id`]" :user="user"></small-user-profile>
+      <small-user-profile
+        v-for="user in users"
+        :key="user[`id`]"
+        :user="user"
+        @user_clicked="display_user"
+      ></small-user-profile>
     </article>
   </div>
 </template>
@@ -10,6 +17,11 @@
 import SmallUserProfile from "./components/SmallUserProfile.vue";
 
 export default {
+  methods: {
+    display_user(name) {
+      this.$refs[`chosen_user`][`innerText`] = name;
+    },
+  },
   data() {
     return {
       users: [
