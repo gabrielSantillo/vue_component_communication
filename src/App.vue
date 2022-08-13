@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <article v-for="user in users" :key="user[`id`]">
-      <small-user-profile></small-user-profile>
+    <article>
+      <small-user-profile v-for="user in users" :key="user[`id`]" :user="user"></small-user-profile>
     </article>
   </div>
 </template>
